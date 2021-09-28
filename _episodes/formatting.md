@@ -53,54 +53,72 @@ WAVE creates _Very low contrast_ errors when it finds text and background colors
 > Level AAA has more stringent requirements for color contrast ratios (7:1 for normal text and 4.5:1 for large), but WAVE only tests for AA contrast levels (4.5:1 for normal text and 3:1 for large).
 {: .callout}
 
-1. Go to the appropriate sample page.
+1. Go to the [sample page](../../samples/index.html).
 2. Activate WAVE.
 3. Go to the Contrast tab.
 4. There are several contrast errors. We can click on the icons to jump to the relevant section on the page. The icon associated with the error is also on the page itself. Hovering over this icon will outline the text with very low contrast.
+
+In this first error, the green text is too light. The contrast shows the text color (foreground color) and the background color, along with lightness sliders so we can experiment with adjusting the contrast. As we darken the foreground color, WAVE shows us the current contrast ratio, along with which WCAG requirements it does or does not meet.
+
+WAVE also changes the color of the text on the page, so we can see what the text would look like if we did modify the color. As soon as we refresh the page the color will go back to its previous state. WAVE cannot actually fix errors we find: We would need to edit the page from our content management system to do that.
+
+Once we have made a note of the contrast error, we can move on and take a look at the other one. The background color for the previous error was `#ffffff` which is the hex color code for white. You cannot make a color lighter than white, so the only way to increase contrast was to darken the text color. For this contrast error, however, we can darken the foreground, lighten the background, or both.
+
+TODO: Is this information (below) about colors useful, and if so where should it go?
 
 Colors on the web use several different potential formats, including HSL, RGB, and hex. Like units of measurement, these can be converted, as long as you know the value for one format. Perhaps the most common format is the hex code, which is what WAVE provides when it finds contrast errors.
 
 The hex code is a direct representation of RGB color. RGB codes define the amount of red, green, and blue, using a range from 0 to 255. A hex code consists of a hashtag followed by six characters, two each for red, green, and blue. These characters are actually all numbers, but they use the hexadecimal numbering system, instead of the standard decimal. There is no need to be able to read or write in hexadecimal: The important thing to remember is that, in addition to 0-9, A-F are also valid numeric characters in hex codes.
 
-When wew click on a contrast error in WAVE, the background and foreground colors are provided as hex codes. There are also two lightness sliders, which we can use to find suitably similar colors with sufficient contrast.
-
 > ## Exercise: Checking Contrast
 >
-> For (TODO: specify contrast error):
+> For the second contrast error on the sample page:
 >
 > 1. What background color would satisfy WCAG AA, if the foreground color remained the same?
 > 2. What foreground color would satisfy WCAG AA, if the background color remained the same?
 >
+> Hint: Clicking on the icon for the contrast error will reset the colors.
+>
 > > ## Solution
 > >
-> > 1. TODO
-> > 2. TODO
+> > 1. `#E8E8E8` or lighter (`#EBEBEB`, `#EDEDED`, anything beginning with _F_: `#F?F?F?`)
+> > 2. `#C6244D` or darker (`#C2244B`, `#BE2349`, `#B92248`, etc.)
 > {: .solution}
 {: .challenge}
 
 As mentioned, there are some places where WAVE is unable to check for contrast errors. Conducting a visual scan of the page may help us find text that is harder to read than it should be, as well as obvious places that need to be manually checked.
 
-TODO: Mention inspect element?
+The bluish box under _Formatting Headings_ (starting with "Because headings apply formatting") on the sample page seems like something that could have low contrast. Maybe WAVE missed it because the contrast is sufficient, but it is suspicious enough to take a closer look. As a matter of fact, the contrast here is too low, but WAVE ignored it because the background uses a linear gradient.
+
+> ## TODO: Inspect Element
+>
+> Is it worth mentioning inspect element in order to find out the background and text colors for something like the issue above? I'm concerned it might be too intimidating, but I'm not sure of a better way to get the colors.
+{: .discussion}
 
 If we want to check the contrast between two given colors, WebAIM provides a [contrast checker](https://webaim.org/resources/contrastchecker/) that accepts hex codes. In fact, since WebAIM produces WAVE, this is the same contrast checker that is embedded in WAVE.
 
-TODO: Challenge? - Conduct a visual scan of the page. There is text on top of an image at one point. How can we determine if the contrast is sufficient?
-
-> ## Contrast with Background Images
+> ## TODO: Contrast with Background Images
+>
+> Should this information be included as a challenge (Conduct a visual scan of the page. There is text on top of an image at one point. How can we determine in the contrast is sufficient?), as a callout, or not at all?
 >
 > Overlaying images with text is reasonably common on the web, but it can be difficult to ensure appropriate contrast ratios. Here are a coupole of strategies you could employ:
 >
 > - Darken or lighten the background image, depending on the color of the text. Light text shows up much more clearly on darker images.
 > - Give the text an outline in a contrasting color. That way, at any given point either the outline or the text will have good contrast with the image.
-{: .callout}
+{: .discussion}
 
 ## Underlined Text
 
-TODO: How much is it worth including this?
+> ## TODO: Include this content?
+>
+> It's pretty easy to check with WAVE, and I don't think underlining words is entirely uncommon, but how important is it for underlined text to receive space in this content?
+{: .discussion}
 
-In WAVE, go from Contrast to Details to view information about errors and alerts. There will be several, but we are interested in any _Underlined text_ alerts. We can click on these to see what text is underlined that probably should not be.
+In WAVE, go from Contrast to Details to view information about errors and alerts. There will be several, but we are interested in any _Underlined text_ alerts. We can click on these to see what text is underlined that probably should not be. Hovering over or clicking on the icon (in the WAVE sidebar or on the page) outlines the text _Do not use manual formatting_.
 
-If we are not sure why underlined text would be an issue, we can click on the _i_ icon, which will switch us to the Reference tab and provide additonal information about the alert. In this case, we see that underlines are associated with linked text. Underlining text that is not a link may confuse readers, and it may also obscure which parts of the content are actually links and which are not.
+If we are not sure why underlined text would be an issue, we can click on the _i_ (more information) next to the icon in the WAVE sidebar, which will switch us to the Reference tab and provide additonal information about the alert. In this case, we see that underlines are associated with linked text. Underlining text that is not a link may confuse readers, and it may also obscure which parts of the content are actually links and which are not.
+
+TODO: Also mention clicking the _Reference_ link on the popup from clicking the icon on the page as a way to get more info?
 
 > ## Exercise: Finding Underlined Text with WAVE
 >
@@ -112,7 +130,10 @@ If we are not sure why underlined text would be an issue, we can click on the _i
 > {: .solution}
 {: .challenge}
 
-TODO: Callout noting other types of problematic formatting?
+> ## TODO: Other problematic formatting
+>
+> Is it worth including a callout mentioning other types of problematic formatting? Things like non-abbreviated words written in all caps or minor semantic elements (code, blockquote, etc.) used purely for formatting.
+{: .discussion}
 
 ## Meaningful Formatting
 
@@ -120,7 +141,7 @@ Even when custom formatting does not create any accessibility issues directly, o
 
 Here is an example of relying on formatting to convey meaning: An instructor provides a paragraph for their students to read. In the paragraph certain words are in bold: The students are to make note of these words and do something with them. (Maybe study their definitions because they'll be on a test?)
 
-If we look at the HTML for the paragraph, we will see that the bolded words use the `<strong>` element. In other words, bold is not applied purely through formatting (though it can be). However, screen readers typically do not indicate when an element is bolded this way. There are several formatting options content creators can use that create meaningful HTML elements. Three examples are bold (`<strong>`), italics (`<em>`), and code (`<code>`). (TODO: Make sure people will understand code in this context. I know it's a standard formatting option in markdown, but I'm not sure about rich text editors.)
+If we look at the HTML for the paragraph, we find that the bolded words use the `<strong>` element. In other words, bold is not applied purely through formatting (though it can be). However, screen readers typically do not indicate when an element is bolded this way. There are several formatting options content creators can use that create meaningful HTML elements. Three examples are bold (`<strong>`), italics (`<em>`), and code (`<code>`). (TODO: Make sure people will understand code in this context. I know it's a standard formatting option in markdown, but I'm not sure about rich text editors.)
 
 In the above example, how could the instructor make the content more accessible? One option would be to include a list of all the important words at the end of the paragraph.
 
@@ -130,8 +151,12 @@ Some related issues would be:
 - Using whitespace characters (e.g. spaces or tabs) to create space between letters in a word or to create visual structure, like columns.
 - Creating lists purely with text, rather than using meaningful list elements.
 
-TODO: How much do lists and meaningful elements need to be explained?
-- should probably include text or discussion on how one might accidentally make a fake list
+> ## TODO: Lists and Meaningful Elements
+>
+> I don't know if the idea of "meaningful elements" would make sense to someone who isn't thinking about HTML. It would be good to stay as non-technical as possible, so what would the appropriate level of explanation be?
+>
+> As far as lists, should probably at least include something (plain text, a callout, or a discussion) about how one might accidentally make a fake list. (e.g. writing a list that would work in markdown, except in a rich text editor)
+{: .discussion}
 
 ### Screen Reader Testing
 
@@ -141,7 +166,7 @@ TODO: How much do lists and meaningful elements need to be explained?
     - will test other accessibility issues - there's no end to the things you can catch with a screen reader
     - helps demonstrate the importance of some of the other things we'll look at (e.g. headers, links)
     - will help you check other things like flow and clarity of content, misspellings, etc.
-- include demonstration with they why
+- include demonstration with they why (show headings and links lists, have it read a couple of problematic paragraphs)
 - how?
     - which screen reader depends on which operating system
     - recommend some basic (built-in) screen readers, and link to information on how to use them
@@ -156,13 +181,11 @@ TODO: How much do lists and meaningful elements need to be explained?
 
 ### Referring to Formatting
 
-TODO: Not sure this is the best way to do this
-
 - there are a couple things to watch out for with formatting conveying meaning
     - one is as mentioned, where formatting is applied to content in order to convey additional information beyond that provided in the text
     - but another occurs when writing instructions that refer to interactive elements on this page or elsewhere - if an element is described only with its formatting, it doesn't even matter if the element is accessible, since either way it isn't being referred to accessibly.
 
-TODO: Include challenge on conveying meaning?
+TODO: Include exercise (below) on conveying meaning?
 
 <!-- For this exercise, there are three goals:
     1. Learners can transfer what they've learned about one type of formatting to other types of formatting.

@@ -105,7 +105,6 @@ highlighter: rouge
 episode_order:
   - introduction
   - formatting
-  - text
   - headings
   - links
   - images

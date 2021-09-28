@@ -54,8 +54,6 @@ If an empty heading is empty visually, as well, it should be removed to prevent 
 
 There are six levels of heading, which form a hierarchy of page content. The top level, also know as the first level heading or **h1**, serves as the heading for all of the page's content. After that, lower levels (higher numbers) indicate further divisions of content.
 
-TODO: More?
-
 ### Alerts
 
 The first level heading makes it clear to all users, regardless of vision, what to expect from the page. It typically doubles as the page title. Therefore, it is important to make sure that it exists. We can check for an _h1_ when we examine the structure in the next section, but WAVE will provide an alert for _Missing first level heading_ if it cannot find one.
@@ -86,8 +84,6 @@ The alert does come with a few limitations. If the text is longer than 50 charac
 
 ### Structure
 
-TODO: Accessibility Insights provides a clean interface for checking all headings on the page. Should this be used instead of or alongside WAVE? Want to avoid complication as much as possible, but don't want to have people using an inferior option.
-
 To make life easier, we can hide various WAVE errors, alerts, and so forth that might otherwise get in the way. We can turn off everything in a given category, or we can turn off only certain types of item in a given category. This is mostly useful to declutter icons on the page, making the ones we are interested in stand out more.
 
 1. Turn off all non-heading-related errors.
@@ -104,7 +100,9 @@ There are several things we are checking here:
 2. Is the outline WAVE provides missing anything? In other words, is everything that should be a heading coded as one?
 3. Are all headings at the appropriate level for their content?
 
-> ## Exercise/Challenge
+> ## TODO: Exercise/Challenge
+>
+> (Testing page needs to be developed so this can refer to it)
 >
 > 1. Identify heading-related issues on the sample page. What did you find?
 > 2. What needs to be done to make the heading structure accessible? Discuss with a partner.
@@ -122,8 +120,6 @@ There are several things we are checking here:
 > >     - Something about the skipped heading level(s)
 > >     - The formatted text should be turned into actual headings.
 > >     - The other heading should be turned into formatted text.
-
-TODO: Something about visually scanning a page and making note of everything that should be a heading?
 
 {% include links.md %}
 
