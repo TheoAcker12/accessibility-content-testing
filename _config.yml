@@ -101,3 +101,15 @@ exclude:
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
+
+episode_order:
+  - introduction
+  - formatting
+  - text
+  - headings
+  - links
+  - images
+  - special-content
+  - tables
+  - forms
+  - final-challenge
