@@ -1,5 +1,5 @@
 ---
-title: "Samples"
+title: "Sample Page 1"
 ---
 
 <style>
@@ -29,11 +29,16 @@ title: "Samples"
     .subtitle {
         text-align: center;
     }
+    .tmp-icon {
+        width: 10px;
+        height: 10px;
+        background-color: blue;
+        position: absolute;
+        margin: 5px;
+    }
 </style>
 
 <h3 class="subtitle">Practice finding errors</h3>
-
-TODO: Make back to top link empty.
 
 ## Headings
 
@@ -77,15 +82,15 @@ While links do need to make sense out of context, they should not be overly word
 
 Some other points to remember:
 
-TODO: Add button to expand/collapse the following content, but do not give the button any text, just an image or icon.
-
-<p>1. Do not use the URL as link text. Not all URLs provide clear information about where they lead. Even in cases where the URL is clear, it is still harder to read for both sighted users and screen reader users.</p>
-<p>2. Put identifying information about a link at the beginning. For example, if a link opens in a new window, indicate that after the normal link text. This makes it easier for screen reader users to distinguish between links and saves them time and frustration.</p>
-<p>3. Do not write "link" or "link to" in the link text or in the alt text of an image link. Screen readers will announce that it is a link, and the formatting should already make it clear visually that it is a link.</p>
+1. Do not use the URL as link text. Not all URLs provide clear information about where they lead. Even in cases where the URL is clear, it is still harder to read for both sighted users and screen reader users.
+2. Put identifying information about a link at the beginning. For example, if a link opens in a new window, indicate that after the normal link text. This makes it easier for screen reader users to distinguish between links and saves them time and frustration.
+3. Do not write "link" or "link to" in the link text or in the alt text of an image link. Screen readers will announce that it is a link, and the formatting should already make it clear visually that it is a link.
 
 
 <!-- WAVE: Skipped heading level. Actual issue is the h2 above that should be h3 -->
 #### Link Examples
+
+Context: A page about OU Libraries
 
 - Bad: [Click here](https://libraries.ou.edu) to access our website. (Ambiguous link text)
 - Bad: Check out the library website: [https://libraries.ou.edu](https://libraries.ou.edu) (URL as link text)
@@ -105,13 +110,13 @@ There are several strategies for providing this kind of indication. Web develope
 
 Sometimes an image may be used as a link, or an image may be included as part of a link. These require some special considerations.
 
-1. If a link involves only an image, make sure the alt text provides the needed link text, so that screen reader users still know what to expect.
-2. If a a link involves both link text and an image, make sure these are bundled together as one link, rather than as two separate links to the same location.
-3. Link text/alt text for these kind of links can be tricky. The Alternative Text section will have more detailed advice for how to deal with this.
+<p>1. If a link involves only an image, make sure the alt text provides the needed link text, so that screen reader users still know what to expect.</p>
+<p>2. If a a link involves both link text and an image, make sure these are bundled together as one link, rather than as two separate links to the same location.</p>
+<p>3. Link text/alt text for these kind of links can be tricky. The Alternative Text section will have more detailed advice for how to deal with this.</p>
 
 <div id="fake-h3-div">Other Link Considerations</div>
 
-1. Avoid and remove empty or broken links.
+1. Avoid and remove empty or broken links.<a href="#checking-for-empty-or-broken-links"><i class="tmp-icon" title="TODO: more info?"></i></a>
 2. Make sure links are underlined and a different color than the rest of the text, to make them clear to sighted users.
 3. Do not use buttons as links. It is fine to format a link to look like a button, as long as it is still coded to look like a link.
 4. Do not use links as buttons. If the link provides a special function instead of opening a new page, it should be coded as a button.
@@ -124,10 +129,18 @@ Sometimes an image may be used as a link, or an image may be included as part of
 
 ## Read More
 
-- [Headings and Subheadings](https://accessibility.psu.edu/headings/)
+- [Headings and Subheadings](https://accessibility.psu.edu/headings/)<i class="tmp-icon" title="TODO: info goes here"></i>
 - <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="_blank">Headings Tutorial<span class="sr-only">, Opens in new tab</span></a>
 - [Easy Checks - A First Review of Web Accessibility, Headings, by W3C WAI (Web Accessibility Initiative)](https://www.w3.org/WAI/test-evaluate/preliminary/#headings)
 - [Links and Hypertext](https://webaim.org/techniques/hypertext/)
 - [Making Accessible Links: 15 Golden Rules For Developers](https://www.sitepoint.com/15-rules-making-accessible-links/)
+
+TODO: Add note for the guides this info came from, including links for the relevant sections, which would include a link called "Links"
+
+<a href="#">Links</a>
+
+TODO: Add images, including one that is an empty link.
+
+[More info](TODO:images_tutorial)
 
 {% include links.md %}

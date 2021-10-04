@@ -3,145 +3,68 @@ title: "Images"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What is alternative text and why is it important?"
+- "How can I check the alternative text of images in my content?"
 objectives:
+- "Describe the difference between alternative text and the alt attribute."
 - "Identify any images without an alt attribute."
+- "Check the alt attributes for all images on a page."
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Alternative text can be provided through an image's alt attribute, image caption, text on the page, or a link to a longer description."
+- "Alternative text should not be provided using an image's title attribute (hover text)."
+- "WAVE will identify any images that do not have an alt attribute."
+- "WAVE will provide the value for all image alt attributes."
+- "Appropriate alternative text depends on the type of the image, so it is useful to have a resource to refer to that describes the different types of images."
 ---
 
-<!--
-Concepts/Issues:
-- All images have alt attributes.
-- No images of text are included.
-- All decorative images are hidden from assistive technology.
-- Image alt attributes are short and to the point.
-    - No source/copyright info
-    - Don't repeat text on page
-- Alt text for functional images describes function, not image.
-- All informative images have alternative text that provides the same meaning/information as the image.
-- Images/non-text content that is part of an exercise or test at least has descriptive identification.
-- Complex images have thorough descriptions either on the same page or on a linked page.
+## Alternative Text
 
-Plan:
-- Note:
-    - What is alternative text?
-    - Alt attribute vs. title attribute vs. alternative text
-- Check for missing alt text with WAVE.
-- Go through each image with WAVE:
-    - Image of text?
-    - Any alerts?
-    - Decorative, functional, or informative?
-    - Complex?
+Alternative text is essential for making images accessible. This refers to any text that is associated with the image and that conveys the necessary information otherwise conveyed visually by an image.
 
-Refer:
-- ASCII art and emoticons (callout?)
-- Resources to help determine the type of image and the appropriate alt text
--->
+One of the most common forms of alternative text is the alt attribute, which is associated with HTML image elements. Content management systems provides ways for content creators to set this. Beyond its usage by screen readers, the alt attribute is displayed on the page in situations where the image fails to load
 
-- Images and importance of alternative text
-    - Blind and low-vision readers
-    - Colorblindness (probably only if visible)
-    - Increased understanding of image/what is important in image for sighted readers (only if visible)
-- Alt attribute:
-    - CMS should provide a way to set this
-    - Displayed if image cannot load on the page for any reason
-    - Read by screen readers
-- Title attribute:
-    - CMS may provide a way to set this
-    - Displayed on hover
-    - Cannot be counted on to be provided in place of alt text
-    - Not all users will be aware of it or able to access hover text
-- Alternative text:
-    - Does not have to provided with alt attribute
-    - Sometimes can benefit sighted users, too
+Another attribute that may sometimes be confused with alt is the title attribute. Content management systems will often provide a way to set this, as well, but it doees not share the useful functionality of alt text. Providing extra information with titles is problematic, since the content is only revealed on hover, meaning users who are not aware of a title's existence or who are not using a mouse will likely miss this content entirely. In the context of alternative text, alt typically provides better accessibility than title. Using only alt or both alt and title are both reasonable options, but only title is inadvisable.
+
+The alt attribute is not the only way to provide alternative text. It can be provided in the standard page text before or after the image, in an image caption, or even in another page (assuming the link to the page is clearly associated with the image). Options that display the alternative text visually may be preferable if sighted-users would also benefit from the text. For example, the alternative text might draw attention to a specific part of the image or increase the user's understanding of a complex image.
 
 ## Missing Alternative Text
 
-- There are other ways to provide alternative text, but the alt attribute can never be ignored. It must always be set (even if it is set to null).
-    - If alt is null, screen readers will ignore the image
-    - if alt does not exist, screen readers will do things like read the image URL - not very helpful!
+While the alt attribute is not the only way to provide alternative text, it must never be ignored. Alt text can be provided a value (for meaningful images) or set to empty or null (for decorative images), but if left out entirely it will cause accessibility issues.
 
-WAVE will create errors for any image lacking alt text. It will not create errors for null alt text.
+Fortunately, WAVE will help us check for missing alt attributes by creating errors. The most common error to look for is _Missing alternative text_, but there may be some others.
 
-The most common error to look for is _Missing alternative text_, but there may be some others:
+_Spacer image missing alternative text_ will almost always indicate an image that should be marked as decorative. _Linked image missing alternative text_ and _Image button missing alternative text_ indicate functional images, which we considered in the episode about links.
 
-- _Linked image missing alternative text_
-- _Spacer image missing alternative text_
-- _Image button missing alternative text_
-- _Image map area missing alternative text_?
-- _Image map missing alternative text_?
+We already made a note of the linked image on the sample page, but there are also a couple of non-interactive images that are missing alt text.
 
-TODO: On the sample page, note what issues we find.
+The first one appears to have alternative text adjacent to it in the page content. To fix this, we should either add an empty alt attribute or some brief alt text identifying the image and possibly indicating that it is described on the page. While this issue, unfixed, would be problematic, and screen reader users would likely wonder if they were missing sometehing important, users would at least be receiving all of the information they need. The second image, however, is an even more serious accessibility issue, since it has no alternative text whatsoever.
 
-## Checking Images with WAVE
+We should also pay attention to any _Image with title_ alerts from WAVE. The name of this alert is slightly misleading. It is not provided for every image with a title attribute, but only for images with a title attribute and without an alt attribute. We should treat these the same as _Missing alternative text_ errors.
 
-As we did with headings, we can turn off everything in WAVE except for the errors, alerts, and features we are currently interested in.
+## Other WAVE Image Checks
 
-1. Turn off all errors except for those about missing alternative text.
-2. Turn off all alerts except for the following:
-    - _Suspicious alternative text_: Will quickly alert us of the most obvious issues in alternative text.
-    - _Redundant alternative text_: Has a limited range, and is only checking for exact matches, but still useful.
-    - _A nearby image has the same alternative text_: Likely indicates incorrect alt text and almost certainly indicates unnecessary redundancy.
-    - _Long alternative text_: Sometimes longer alt text may be appropriate, but it is generally best to keep it as short as possible.
-    - _Long description_?
-    - _Image with title_: Titles are not a suitable replacement for alt text.
-3. We can go through each of the images on the page. WAVE will show the image alt text next to the image. (Look for the _Alternative text_ feature, or a related feature).
-4. If there are a lot of images, we can turn each image off once we have determined whether or not it has any issues.
+WAVE will also provide us with a number of alerts for potentially problematic alt text.
 
-As we go through each image, we first must determine what type of image it is so that we know exactly what to check for. Each type will be briefly described in its section. TODO: Link to more in-depth resource?
+- _Suspicious alternative text_: As with the alert for suspcious link text, we cannot rely on this to help us find all "obvious" issues, but it should find most.
+- _Redundant alternative text_: This checks within a very limited range, as explained in the reference info for the algorithm.
+- _A nearby image has the same alterantive text_: Likely indicates incorrect alt text and almost certainly indicates unnecessary redundancy.
+- _Long alternative text_: Alternative text should be relatively concise. In most cases, when long alternative text is required it should not be provided with the alt attribute.
 
-### Images of Text
+Once we have checked the errors and alerts, we can run through all the images to check for other issues. WAVE can help with this, but it is primarily a manual process, much like checking heading structure with WAVE.
 
-Is it essential that the text is provided as an image?
+First, as we did with headings, we want to turn off everything from WAVE that is not relevant to images. This means some/many of the errors, alerts, and features, as well as all contrast errors, structure, and ARIA. Once we have done this we can check out each relevant feature listed by WAVE.
 
-- Yes: Ensure that the alt text for the image exactly matches the text shown.
-- No: Replace the image with the text itself.
+- _Alternative text_: For every image that has alt text, this feature will be included. WAVE will also show the alternative text on the page, so we can easily check that it is accessible. These will typically follow the rules for informative or complex images.
+- _Null or empty alternative text_: These images will be ignored by screen readers. While the dominant view for some time has been to mark images as decorative in this way, some blind and low-vision users prefer short alt text identifying the image. We should make sure that these images are truly decorative and that adding even brief alternative text would be more annoying to screen reader users than it would be helpful.
+- _Null or empty alternative text on spacer_: The alt text for spacer images should almost always (if not always) be null. We should make sure that any such images are indeed spacers.
+- _Linked image with alternative text_: This indicates functional images (as does _Image button with alternative text_).
 
-Note: There may be situations where there is a large image of text that is needed, like a scan of a handwritten document. In this case, the text is too long to be provided in reasonably short alt text, so it is better to provide the alternative text the way we would a complex informative image (described further below).
+Determining the appropriate alternative text for an image can be complicated. Therefore, as we check images, we will want to either already be familiar with the various aspects to consider or have a resource to consult with (or both). WAI provides an excellent [images tutorial](https://www.w3.org/WAI/tutorials/images/) that can be useful to look over before testing and to refer to while testing.
 
-Point out the logo as an example of essential image of text. Point out the h1 as an example of non-essential image of text.
+A couple of things to remember when checking the image alt text:
 
-### Functional Images
-
-A functional image is one that performs some kind of interactive function. Typically this would be an image that serves as a link or button or as part of a link or button. If the image is a link, this will already have come up to some degree when checking link text, but it never hurts to doublecheck.
-
-WAVE may helpfully indicate alt text for functional images with the following features:
-
-- _Linked image with alternative text_
-- _Image button with alternative text_
-
-Does the functional element (e.g. link or button) consist of only the image, or of an image and text?
-
-- Only the image: The alt text should indicate the function (e.g. the destination of the link or action performed by the button).
-- Image and text: As long as the text adequately indicates the function, the image alt text should be null.
-
-Note: In rare cases the content of the image may be important, but normally is is better not to describe the image in order to avoid cluttering up the link (or other interactive element) text.
-
-### Decorative Images
-
-Most images content creators add would not be considered decorative. Decorative does not mean an image included because it is pretty. If an image is included because it is pretty, it will typically be considered informative, if only because it helps create interest or contributes to the modd of the page. A decorative image would be something like a star icon separating words in a list or ... TODO: Better explanation/examples?
-
-Look for a _Null or empty alternative text_ or _Null or empty alternative text on spacer_ feature.
-
-### Informative Images
-
-Most images will probably be informative to some degree.
-
-If the content from the image can be communicated in maybe 1-2 sentences, make sure the alternative text WAVE shows provides the appropriate information. Otherwise, make sure the appropriate information is included elsewhere and that the alt text indicates where it can be found (e.g. "screenshot of the blah blah blah, as described above/below" or "diagram of blah blah blah, as described in the link below").
-
-Notes:
-- When do you provide a descriptive identifier instead of full alternative text?
-- Make sure things like source or copyright info are never included in alt attribute.
-- Make sure words like "image of" are not included. May be appropriate if providing additional information, however (e.g. diagram, bar chart, screenshot, etc.).
-
-TODO: Exercises
-
-- What is wrong with including an image of text with alt text that contains the text content? (probably a discussion) - consider: length of text, how easy it is to read or zoom compared to standard text, cases where the image is of a historical document and text content is also included in a transcript
-- What information should be included in the alternative text for the following image?
-- Which of the following are appropriate methods for providing alternative text?
-- Discussion: Is this image informative or decorative?
-- Indicate which images have accessible alternative text and which do not?
+- Make sure none of the images have source, copyright, or similar types of info in the alt attribute.
+- Make sure words like "image of" are not included in the alt attribute. Variations that replace "image" with more descriptive information may be appropriate in some cases (e.g. diagram, bar chart, screenshot, etc.).
 
 {% include links.md %}
 

@@ -10,51 +10,57 @@ objectives:
 - "Ensure that link text indicates link behavior."
 keypoints:
 - "WAVE can detect empty links and buttons."
-- "Accessibility Insights for Web provides a list of all links so you can check how they will be identified."
-- "Links that open in a new tab or window or download content need to indicate this to users."
+- "Accessibility Insights for Web provides a list of all links to check how they will be identified."
+- "Links that open in a new tab or window or that download content need to indicate this to users."
 ---
-
-<!--
-Concepts/issues:
-- Links and buttons are not empty.
-- Link text is short and to the point.
-    - URLs are not part of link text.
-    - Links do not use click here, read more, link to, etc.
-- Identifying information for a link is at the beginning.
-- Link text makes sense either with or without context (preferably out of context and out of order).
-- Links always indicated when they will open in a new tab/window or download content.
-
-Plan:
-- Check for empty links (and buttons) with WAVE.
-- Check for suspicious link text with WAVE (won't necessarily catch everything, but a good start).
-- Check link text more thoroughly with Insights.
-- Check for link text and link behavior with Insights.
-
-Refer:
-- Testing document accessibility.
-- Ways to indicate link behavior.
--->
 
 Links are the most common type of interactive element that people include in their content.
 
 ## Empty Links
 
-An empty link (or button) is defined as one that does not have any text content. For example, an image with no alternative text that functions as a link would be considered an empty link. This would be highly problematic for screen reader users, who would know the link exists (hopefully), but have no idea where it would take them.
+An empty link (or button) is defined as one that does not have any text content. Screen reader users would know the link exists (hopefully), but would not have any idea where it would take them, since there would be no link text for the screen reader to give them. WAVE will indicate such links with either an _Empty link_ error or a _Linked image missing alternative text_ error.
 
-WAVE can help us quickly identify empty links (and buttons, for good measure).
+On the [sample page](../../samples/index.html) (the same one we have been using), we can find examples of both these errors. Clicking the _Empty link_ error takes us to an icon (from the page, not produced by WAVE). Hovering over this icon gives use some more information, but title text (also sometimes called hover text) is not the same as link text. The _Linked image missing alternative text_ is a similar situation.
 
-1. Go to appropriate sample page and activate WAVE.
-2. Check for _Empty link_ errors.
-3. Note why the links are empty.
-4. Note that WAVE can also give use _Empty button_ errors.
+What is the difference between these two errors? _Empty link_ means that if anything is presented visually, it is not an image element. There are many ways to display images without using image elements: For example, an image can be used as the background for a different HTML element or a non-image icon could be displayed, as is the case here. _Linked image missing alternative text_, on the other hand, means that an actual image is being used as a link. The only thing typically needed to make these accessible is alt text that indicates where the link goes.
 
-TODO: Exercise or discussion on how to fix the empty links identified above. One empty link might be an image
+WAVE will also alert us of any empty buttons it finds, which will generally have the same considerations as empty links.
+
+> ## Exercise: Fixing Empty Links
+>
+> Which of the following are accessible ways to fix the _Empty link_ error?
+>
+> 1. Remove the element entirely or make it no longer a link.
+> 2. Hide the element from assistive technology (using `aria-hidden="true"`) so that the empty link is ignored.
+> 3. Add text so the link becomes: `<icon> link destination`
+> 4. Replace the icon with text indicating the link destination.
+> 5. Replace the icon with an image and give the image alternative text describing the image.
+> 6. Replace the icon with an image and give the image alternative text indicating the link destination.
+>
+> > ## Solution
+> >
+> > 3, 4, and 6 are accessible ways to fix the error. 1 might be, though it sidesteps the issue.
+> >
+> > 1. Removing the element certainly means there is no longer an empty link, but now no users have access to the link. If the link is important, this is not a good solution.
+> > 2. This is not accessible because screen reader users will be denied a link that others will have access to.
+> > 3. This is accessible.
+> > 4. This is accessible.
+> > 5. This is not accessible. While the link will no longer be empty, a description of the image will not tell screen reader users where it will take them.
+> > 6. This is accessible.
+> {: .solution}
+{: .challenge}
 
 ## Link Text
 
-While we will need to manually check the link text for all links we add, WAVE can help us quickly identify the most obvious issues with _Suspicious link text_ alerts.
+While we will need to manually check the link text for all the links we have included in our content, WAVE can help us quickly identify the most obvious issues with _Suspicious link text_ alerts.
 
-Note what links are given this alert on the sample page.
+On the sample page, we can see there are two of these alerts. The first is an example of a bad link. In context, we can determine where clicking the link will take us, but out of context this not a helpful link. Recall from the screen reader demo how "click here" was meaningless within the VoiceOver rotor. An example of a better alternative is provided as the last item in the list of examples. Whether or not "for more information" is included, "check out the library website", where "library website" serves as the link text, is a good option.
+
+Note that "library website" could be ambiguous. For example, if the page were about multiple institutions or libraries, the link could refer to any number of library websites. However, because the link text makes sense within the context of the page (a page about OU Libraries), it can be considered to make sense out of context.
+
+The second alert is not necessarily an issue. In many cases WAVE provides alerts to indicate that there may or may not be a problem. In this case, "Links" accurately describes the link destination. On the other hand, it might still be confusing out of context. Changing it to something like "Link accessibility" might be clearer.
+
+For a full idea of what link text is considered suspicious, we can view the reference information for the alert. The explanation of the algorithm has a list of phrases that WAVE checks for. The list is presumably based on the most common offenders for ambiguous link text, but we could certainly come up with others. What about "show details", "next", or "source"?
 
 We can better examine link text by using Accessibility Insights for Web to list all the links along with their accessible names.
 
@@ -63,60 +69,53 @@ We can better examine link text by using Accessibility Insights for Web to list 
 3. Choose Assessment. If a notification indicates that an assessment is already in progress, choose _Start new_.
 4. Click on _Links_ and then _Link Purpose_.
 
-Scan the accessible names in the list of links provided. (TODO: Fill out examples)
+Scan the accessible names in the list of links provided and consider the following for each:
 
-Are any of them very long? This link and that link stand out as much longer than the others. Imagine having to listen to all that every time you wanted to go through the links on the page. How can we make the text for these links shorter while still indicating where the link will go?
+Does the link have a URL as part or all of the text? Going through the list of links with a screen reader might be especially helpful, since the mish-mash of letters in a link would most certainly stand out. It certainly stood out when VoiceOver started reading "h-t-t-p-s-colon-slash-slash" in the screen reader demo. Most likely any URLs will stand out in a visual scan, too. We can see the URL link text from the demo in this list. As with the ambiguous "Click here" link that WAVE alerted us to, "library website" would make much better link text.
 
-Do any of the links have URLs as part or all of the text? Going through the list of links with a screen reader might be especially helpful, since the mish-mash of letters in a link would most certainly stand out, but they will most likely stand out in a visual scan, as well. Which of these links have URLs in the link text? How could we rephrase the content to give the links accessible names?
+Does the link make sense, even without knowing its context (where it is on the page and what text comes immediately before and after it)? Technically, as long as the link text makes sense in context then it meets minimum accessibility standards, but it is far better to have links make sense out of context (and out of order).
 
-Do any of the links consist of suspicious phrases like _"click here"_ or _"read more"_ or include unnecessary text like _"link to"_? WAVE has already caught most of these, but it never hurts to quickly glance through for any that it did not catch. And if we miss any after this first pass, we will surely notice them when we read through the links more slowly. TODO: Point out link with suspicious text.
+"Click here" is one of the more obvious examples of link text that does not make sense without context, though WAVE has already alerted us to it. As mentioned, however, there are plenty of phrases WAVE will not catch, so it is well worth checking the list ourselves. In this case, there is a link with the text "More info".
 
-Make a slower second pass. This time read through each accessible name and consider the following:
+We might also find some links that do not have clearly suspicious phrases, but that are not really clear without context. If we have to read the URL, check back on the page, or use our memory as content creators, we should consider that a warning sign.
 
-Does this link make sense, even without knowing its context (where it is on the page and what text comes immediately before and after it)? Technically, as long as the link text makes sense in context than it meets minimum accessibility standards, but it is far better to have links make sense out of context (and out of order). TODO: Consider this link. Out of context, what does it seem to indicate? How could it be adjusted to be more accessible?
+Is the link text concise? For example, one of the links in this list starts with the phrase _link to_, which is completely unnecessary. Links should always have clear formatting such that sighted users will not need a phrase to identify them, and screen readers will identify links as such to their users. Unnecessary words and phrases or unnecessarily detailed or lengthy description can quickly make going through a list of links unpleasant.
 
-If only some of the link text identifies the link and distinguishes it from other links, is that identifying information at the beginning? Examples of links where not all information is identifying:
+On a somewhat related noe, if only some of the link text identifies the link and distinguishes it from other links, is that identifying information at the beginning? Sometimes non-identifying information is useless filler that should be removed, as with the example of the link starting with _link to_, but sometimes there is information that does not necessarily distinguish the link from other links, but that is still important enough to be included. Examples of links where not all information is identifying:
 
 - Library Carpentry, opens in new tab
 - Book title, chapter x
 - Book title, chapter y
 
-TODO: See if these are good examples
+> ## Exercise: Testing Links
+>
+> Use the [sample testing page](../../test-sample-1/index.html) for this exercise.
+>
+> 1. What link-related errors and alerts does WAVE provide for this page?
+> 2. Are there any ambiguous links on the page that WAVE did not catch?
+> 3. Are there any links with URLs in the link text?
+>
+> > ## Solution
+> >
+> > 1. Errors: 1 linked image missing alternative text. Alerts: 1 suspicious link text, 1 redundant link.
+> > 2. Yes: TBD
+> > 3. TBD
+> {: .solution}
+{: .challenge}
 
 ## Link Behavior
 
-Another thing to look for while scanning the list of links is any indication of link behavior. For example, a link might indicate that it opens in a new tab or downloads a Word document.
+Another thing to look for while scanning the list of links is any indication of link behavior. For example, a link might say that it opens in a new tab or downloads a Word document.
 
-### Download Links
+As content creators, we will hopefully be aware of whether or not we have added links that download content. If we know we have not, there is no need to worry about this. If we know we have (or think we might have), we should go through all the links to determine any that download content and ensure that those provide indication that they download content for both sighted and non-sighted users
 
-You will hopefully be aware whether or not you have added links that download content. If you know you have not, there is no need to worry about this. If you know you have, or think you might have:
+Dealing with whether or not links open in new tabs is primarily something to check with the content management system. Manual checking should be performed if the CMS default is for links to open in the same page, but we have set some links not to, and the CMS does not indicate that these links open in new tabs (or windows). In this case, we need to identify all links that open in new tabs so that we can go back to the default.
 
-1. Go through all of the links and determine which ones download content.
-2. Make sure the accessible names of those links indicates that they are download links.
+## Other Link Issues
 
-### Links that Open in New Tabs
+WAVE can provide alerts for any broken same-page (anchor) links. These links jump to specific content on the page rather than change the page, and this makes it possible to check them automatically. A broken link is confusing and irritating to all users, so any that are found should be dealt with and removed. Unfortunately, WAVE cannot check for broken external links, as this is far more complicated. For most pages, it is better to <kbd>tab</kbd> through the page and try each link.
 
-TODO: Would it be better to simply include this when considering the CMS as a whole?
-
-- Insights will show us any text the link provides to indicate behavior (e.g. link text, opens in new tab)
-- In a CMS, there will be a default setting. You can click on any link (as long as you know you did not change the default for it) to see if it opens in the same tab or a new one. If new one, links need to indicate that.
-- If you have set the link target for any links:
-    - You can check an ordinary link where you set the target to open in new tab and make sure that it indicates it will
-    - Do you also need to ensure that if you set target for the same tab that it does not indicate new tab?
-    - If it doesn't indicate, you will need to do more thorough checking to make sure that you have manually added some kind of indication - might be a link for more info?
-
-## Other Link Issues?
-
-- _Broken same-page link_
-- Mention how to check for broken external links??
-- _Redundant link_
-
-TODO: Exercises
-
-- Which of these links are accessible?
-- How many links are on sample page?
-- What are accessible ways to indicate when a link opens in a new tab? (or downloads content)
-- Identify link-related issues on a sample page
+WAVE also provides a _Redundant link_ alert when it detects two links to the same address close together. Sometimes this happens because an image and text are both used as links. In these cases, the image and text should be combined into one link. A more common situation we, as content creators, might encounter is referring to something several times, and linking to it each time. Most of the time it is best to remove all such redundant links in order to prevent confusion.
 
 {% include links.md %}
 
