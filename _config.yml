@@ -104,11 +104,10 @@ highlighter: rouge
 
 episode_order:
   - introduction
+  - testing-tools
   - formatting
+  - screen-readers
   - headings
   - links
   - images
   - special-content
-  - tables
-  - forms
-  - final-challenge

@@ -1,60 +1,56 @@
 ---
 title: "Introduction"
-teaching: 0
+teaching: 10
 exercises: 0
 questions:
-- "What is digital accessibility testing, and why should I do it?"
-- "How can I use tools to make testing easier?"
+- "Why is it important to test content for digital accessibility?"
+- "How can I test my content?"
 objectives:
 - "Explain the importance of digital accessibility."
-- "Demonstrate how to use WAVE and Accessibility Insights for Web."
+- "List various methods for testing."
+- "Describe additional strategies to use beyond testing."
 keypoints:
-- "Digital accessibility involves making content accessible to users with a wide variety of disabilities and assistive technology."
-- "Digital accessibility makes content better for people with disabilities _and_ people without."
+- "You do not have to be an expert to create accessible content."
+- "Digital accessibility makes content better for people with disabilities and people without."
 - "Automated testing tools catch only a relatively small percentage of accessibility issues."
-- "WAVE is an automated testing tool that provides some useful information for performing manual checks, as well."
-- "Accessibility Insights for Web has an assessment tool that provides valuable assistance with manual tests."
 ---
 
-<!-- Note: Instructors can skim or skip some of this depending on starting experience level of learners -->
-
+<!--
+Key points:
+- People with disabilities have diverse situations and experiences.
+- It can be useful to have a broad understanding of types of disabilities and assistive technology in order to better understand the importance of various accessibility principles.
+- You do not have to be an expert to create accessible content.
+- Digital accessibility makes content better for people with disabilities and people without.
+-->
 ## Digital Accessibility
 
-<!-- This is general content. Perhaps much of this would be assumed and included as a prerequisite. If not, perhaps some method should be considered so that the content can be shared between multiple lessons, and only one thing has to be modified. -->
+Digital accessibility determines how well people with disabilities can use digital content, like websites. But what does it mean for a website to be accessible?
 
-- Digital accessibility refers to whether or not a digital item, like a website or video, is accessible to people with disabilities.
-- An accessible website means that, regardless of vision, hearing, motor control, etc:
-    - People have the same overall experience using the website.
-    - People are able to do all the same tasks.
-    - Nobody has to jump through extra hoops or deal with unnecessary barriers.
-- Part of a website's accessibility will depend on the assistive technology available to a given person. When creating digital content, we use reasonable assumptions. For example, we assume a blind person will have a screen reader that can perform a number of standard functions.
-- Part of a website's accessibility depends on the website itself. For those of us creating websites or content for websites, that part is our responsibility.
+An accessible website means that, regardless of vision, hearing, motor control, cognitive ability, or other disability status:
 
-### Elements of Accessibility
+- People have the same overall experience using the website.
+- People are able to do all the same tasks.
+- Nobody has to jump through extra hoops or deal with unnecessary barriers.
 
-- How can I know what my website users will need?
-- There are lots of things that can impact a person's ability to use a website. A few examples:
-    - Someone may be blind or have low vision.
-    - Someone may be deaf, hard of hearing, or in a very noisy environment.
-    - Someone may be missing one or both of their arms.
-    - Someone may have very shaky hands, making fine motor control impossible.
-- And there are many assistive technologies that can help with different types of disability:
-    - Provide examples that include more than just screen readers (e.g. refreshable braille displays, alternative input devices).
-- Do I need to be familiar with all of this?
-    - Only if you are going to become an accessibility expert.
-    - Assistive tech relies on standards. There are standard ways to indicate when text is a heading, where a link goes, and what content an image contains. As long as we meet these standards, we don't need to worry about what specific devices may be used.
-        - Example: If the website can traversed with solely the keyboard or solely the mouse, you know it will be accessible for any reasonable alternative input device.
-    - It can be helpful to have passing familiarity with some of what is out there, however. This can make some standards easier to understand. For example, coding all the headings on a webpage (or document) properly may not seem very important, until you learn that screen readers will read out all the headings on a page and allow users to jump to any of these, imitating the ability of a sighted person to skim a page for the headings and only start reading when they find the one they want.
+There are many ways that websites could create barriers for people with disabilities, especially since there is much diversity when it comes to disabilities people may have, their experiences with disabilities, and the assistive technology they use to interact with computers and content. While there is no need to know everything, it is useful to have some general knowledge of types of disabilities and assistive technology to better understand how creating content in certain ways will impact the people who use it.
+
+Here are a few examples of some users who benefit from and may rely on digital accessibility:
+
+- A blind or low-vision person who uses a screen reader to tell them what is on the page.
+- A deaf or hard-of-hearing person who needs captions or transcripts for videos and podcasts, since they cannot hear the audio.
+- A person without hands who interacts with their computer using an alternative input device, perhaps operating by their feet or their mouth.
+
+There is a lot to know about disabilities, assistive technologies, and how accessibility principles apply to content on the web. Fortunately, you do not have to be expert to create accessible content. Even when we do not create perfectly accessible content, every piece of progress we make has real and lasting benefits.
 
 ### Why it Matters
 
-- Lots of people have disabilities. Do you really want to exclude all these people from using your content?
-- There are also lots of people with temporary disabilities.
-    - Have you ever been in a really noisy environment?
-    - Have you ever broken an arm or leg?
-    - Have you ever had your mouse or keyboard die unexpectedly, lost your glasses or contacts, or lost some other device you rely on to perform everyday tasks?
-- There is no need to create inaccessible content. You don't have to weigh doing a thing vs. accessibility, as long as you make sure to do the thing accessibly.
-- And of course, for many of us, it's the law. For example, universities can (and do) get sued for providing inaccessible content.
+There are many reasons to pursue digital accessibility:
+
+- Many people have disabilities, and we certainly do not want to exclude them from using our content!
+- Nobody, with or without disabilities, ever said: "Wow, this content is so clear, readable, and easy to use. I hate it."
+- People without a given disability may find themselves in a situation that mimics that disability to some extent. For example, someone who can hear perfectly may need captions to listen to audio content in a particularly loud environment.
+- Abilities change as we age. Someone who is perfectly happy reading tiny text now may not be so happy to do so in twenty or thirty more years.
+- And of course, for many of us, digital accessibility is the law. Universities and other organizations can (and do) get sued for providing inaccessible content.
 
 > ## Exercise
 >
@@ -64,51 +60,64 @@ keypoints:
 > In a pinch could maybe do the #nomouse challenge.
 {: .challenge}
 
+<!--
+This is a brief introduction to what accessibility testing entails.
+
+Key points:
+- Keeping accessibility in mind when creating content will make testing and fixing content much easier.
+- Provide contact information and do not be afraid to ask for feedback from your website visitors.
+- Automated testing tools catch only a relatively small percentage of accessibility issues.
+-->
 ## Testing Content
 
-- There are a lot of factors that go into whether or not a webpage is accessible.
-- Testing allows us to find various barriers that we would not have noticed otherwise.
-- Some things can be tested with the help of various tools. Others need to be checked manually, for example, by trying to use the keyboard to navigate a site and making sure we can get everywhere.
-- We can't put all our trust in any automated tool. You may hear different estimates on what percent of errors automated tools can catch, but the important thing to remember is that it is only a percentage.
-- For a website with multiple pages (which is most of them), there are some aspects of the site that are the same. Generally this includes things like the page navigation, the footer, and various formatting options. We will not focus on these at the moment.
-- There is also all of the actual content of each page. The main content is what changes from page to page, and is what we are most concerned with, as content creators. We may also provide other content, like what goes in the page footer.
-- There are a lot of principles involved with digital accessibility. Trying to go based on these can be very difficult, since you first have to figure out how they apply to various pieces of content.
-- We will instead break things down by content type to create a more understandable workflow.
+While testing is essential, it should not be the first or last step in ensuring our content is accessible. First, we should keep accessibility in mind when we choose content management systems (if we are given the opportunity) and as we create content. It is much easier to create content that is accessible from the beginning than to correct inaccessible content.
 
-### Tools
+We also need some plan for how to deal with errors that we do not manage to catch during testing. While we hope to catch everything, there are never any guarantees. A good strategy is to provide contact information in an easy to find location and ask users to let us know how we are doing. Most users will appreciate our efforts and will be happy to let us know when they encounter some accessibility issue that we missed.
 
-- There are lots of different tools for automated or semi-automated testing. As with everything, some will be better quality than others.
-- We will use WAVE and Accessibility Insights for Web. These aren't the only useful tools available, but they are good ones.
-- WAVE is an automated tool, although it also provides some assistance in manual checks by making note of things like heading structure and image alt text.
-- An automated tool is an important component in testing: There is no reason not to automate everything that can be automated. Like all automated tools, WAVE shares the limitation that there are many aspects of accessibility that simply cannot be automatically checked, but it saves us from having to manually check for a number of potential issues.
-- Reasons to use WAVE:
-    - It is well-known, so other people you come into contact with may already be familiar with it, which can be helpful.
-    - It is produced by WebAIM, which is an incredible font of accessibility knowledge and a very respectable organization.
-    - It provides a useful user interface and highlights structural elements and features in addition to errors and alerts.
-    - It has very good documentation.
-- Using WAVE
-    - Have everyone navigate to the first sample page.
-    - (This should happen before starting:) Doublecheck that everyone has installed the extension. (and the Accessibility Insights one, too)
-    - Show where the extension is and have everyone turn on WAVE.
-    - Note how it messes with the formatting of the sample page.
-    - Look over the overview and the various tabs.
-    - Jump to a particular issue.
-    - Toggle an issue off and back on.
-    - Get more information about an issue.
-    - Note that we will go through these steps quite a few times as we continue, so they will get quite a bit of practice.
-    - Turn off WAVE: Either click the extension again or refresh the page.
-- Accessibility Insights for Web is a bit more than an automated tool. It has an automated component (Fast Pass), but it is the Assessment tool that we are interested in (WAVE is a better automated tester). The assessment tool does run through some automated tests, but it also lists a lot of manual tests and provides assistance in doing them.
-- Our primary reason for using Accessibility Insights is that it lists various types of content, like links, allowing us to check through them quickly and efficiently. It also provides checkboxes so we can indicate which are good and which aren't, which saves us the trouble of having to write down the information elsewhere.
-- Using Insights:
-    - Make sure everyone is still on the first sample page.
-    - Show where the extension is and have everyone turn it on.
-    - Indicate the correction option to choose: Assessment.
-    - Note how it opens in a separate page.
-    - Look over the list of tests.
-    - Note that some of these can be pretty confusing. I'm never quite sure what I'm doing in the sections about widgets, which is part of the reason I don't typically run through the whole thing, but rather only the specific sections I find most useful.
-    - Note the links section and how it lists out all the links on the page very conveniently.
-    - Note the landmarks section and have everyone turn on the visual helper before taking a look at the sample page.
-    - Turn off Accessibility Insights: X out of it. The assessment will actually keep, so if you try running it on a different page it will ask if you want to keep the old one or start something new.
+That being said, we certainly cannot ignore testing! So, what does testing look like? There is a lot that goes into whether or not a webpage is accessible, which means that there is not one test that will catch everything. Depending on the type of issue, one or more of the following methods may be required to test for it:
+
+<!-- Cite deque? https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/ -->
+- Using an automated tool to find errors. This is the most convenient method, but cannot be relied on. Estimates vary of the percentage of errors such tools can catch, but we know that the percentage is nowhere near 100%.
+- Using an automated tool to find potential errors that require manual checks
+- Using a tool to highlight or otherwise examine various elements on the page to more easily check them manually.
+- Navigating the page with only a keyboard or with a screen reader.
+- Manually examing the content. We want to avoid this as much as possible.
+
+There are several ways to go about testing. For our purposes, we will group the major issues and how to test for them based on content type. As you become more comfortable with testing, you may decide to rearrange the order of tests you perform to find a workflow that works best for you, but this will get you started.
+
+As for what content we need to test, as content creators we can typically categorize the content or elements of a webpage as either features of the content management system or features of the content itself.
+
+Features of the content management system are automatically applied across pages. These might include the page navigation, the header and footer, and various formatting options, such as how links are formatted.
+
+Features of the content, on the other hand, includes everything that we specifically create or modify. For the most part, this will mean the content we create for each page (text, links, images, etc.) and formatting changes we apply to specific items that override the default formatting, though it would also include content we provide for repetitive elements like a footer or sidebar.
+
+This lesson will focus specifically on our content. Features of the content management system will be covered in a separate lesson, as the system requires different considerations in testing.
+
+<!--
+Possible exercise: Provide a list of accessibility issues and either ask if learners think the issue can be found with an automated tool or ask what method of testing learners think would be required.
+- Low color contrast
+- Menu options that cannot be reached with the keyboard
+- Image missing alternative text
+- Broken link
+-->
+
+> ## Challenge: Automated Tools
+>
+> For the following issues, is the most likely cause the content management system (CMS) or the content? If you are not sure, it is perfectly fine to guess.
+>
+> 1. Low color contrast
+> 2. Menu options that cannot be reached with the keyboard
+> 3. An image missing alternative text
+> 4. Non-heading text that is formatted by using a heading
+>
+> > ## Solution
+> >
+> > 1. Either. If the colors in question were modified from their default values, then the issue is the content. Otherwise the issue is the CMS.
+> > 2. CMS. Content management systems handle site navigation.
+> > 3. Content. Most images will be added by content creators, who are responsible for providing the appropriate alternative text.
+> > 4. Either. Content management systems typically provide formatting options or content types for creating headings that the content creator is responsible for applying, but a CMS may use headings inappropriately when creating navigational elements, subtitles, and other content.
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
 

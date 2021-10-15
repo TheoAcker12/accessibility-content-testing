@@ -1,16 +1,18 @@
 ---
 title: "Special Content Types"
-teaching: 0
+teaching: 10
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What are other types of content that are often inaccessible?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Identify some major content types that need special attention."
+- "Get resources for more information about these content types."
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Animated content can cause serious accessibility issues."
+- "GIFs are rarely accessible."
+- "AV (audio and video) media have to be checked manually."
+- "Documents follow a different testing process than web pages."
 ---
-
-There are a number of specialized types of content that require specific accessibility considerations. There may not be a good way to easily check for these with a tool like WAVE or Accessibility Insights for Web, but they are specialized enough that we will probably know whether or not they are relevant to our content.
 
 ## Animation and Movement
 
@@ -45,7 +47,7 @@ If WAVE detects blinking content it will create a _Blinking content_ error. This
 
 ## AV Media and Documents
 
-Audio-only, video-only, or synchornized audio and video content have their own set of accessibility requirements. There is not a simple automated way to check for these, so if we have any content of this type we will have to go through the list of requirements and check manually check if each is met.
+Audio-only, video-only, or synchornized audio and video content have their own set of accessibility requirements. There is not a simple automated way to check for these, so if we have any content of this type we will have to go through the list of requirements and check manually check if each is met. Read [WCAG Time-based Media](https://www.w3.org/WAI/WCAG21/quickref/#time-based-media) for more information.
 
 Any documents, whether embedded in the page or provided for download, should also be checked for accessibility. These require a different process than web content testing, which will be detailed in a different lesson.
 

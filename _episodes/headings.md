@@ -1,35 +1,35 @@
 ---
 title: "Headings"
-teaching: 0
+teaching: 15
 exercises: 0
 questions:
 - "How can I check the heading structure of a page?"
 objectives:
 - "Check for the existence of headings."
-- "Detect errors in heading strucutre."
+- "Detect errors in heading structure."
 - "Ensure all headings and non-headings are marked appropriately."
 keypoints:
 - "WAVE will create an alert when a page does not have headings."
-- "WAVE creates errors for any empty headings that should be removed."
+- "WAVE creates errors for any empty headings that should be removed or fixed."
 - "WAVE creates several useful alerts for potential issues in heading structure."
 - "WAVE indicates all headings (and their levels) on the page."
 ---
 
-Headings are one of the most important structural elements of a webpage (or document). When headings are used to organize content, sighted users can glance at a page and quickly get an idea of what it contains. If they are looking for a particular piece of information, they may be able to jump quickly to the correct section simply by finding the relevant heading. Even when reading through a page from start to finish, the obvous formatting change of a heading clearly signals a new section of content. When coded appropriately, headings provide the same functions to blind and low-vision users, as demonstrated with VoiceOver in the previous episode.
+## Importance of Headings
 
-Headings are semantic (meaningful) elements. What this means is that headings are defined in the HTML code of a webpage. Even if a heading was given the same formatting as the rest of text content, it would still be a heading. This means that assistive technology, like screen readers, can present a list of headings to users, making the page much easier to navigate. We saw how this works in the screen reader demo.
+Headings are one of the most important structural elements of a webpage (or document). They allow sighted users to glance at a page and quickly get an idea of what it contains, and they break up content into more manageable chunks. When coded correctly, they provide the same functions to assistive technology users, as we heard in the screen reader demo.
 
 ## Quick Heading Checks
 
 Because headings are so useful, it is important to make sure that we use them and that we do so appropriately. WAVE can help us detect some of the most obvious heading issues.
 
-1. Go to the [sample page](../../samples/index.html) (the same one we have been using) and activate WAVE.
+1. Go to the [sample page](https://accessibility.oucreate.com/samples/sample) (the same one we have been using) and activate WAVE.
 2. Check for the WAVE alert _No heading structure_. If found, the other checks listed here are unnecessary.
 3. Fortunately, the alert is not present. As soon as we run into another heading-related error or alert, we can stop looking, as such error or alerts indicate that there is a heading structure of some sort.
 
-An empty heading is a heading element that does not contain any text content. A screen reader user will typically know that the heading exists, but have no idea what content it contains, or possibly even whether or not it contains content they cannot see. We can find these with WAVE by checking for the _Empty heading_ error.
+An empty heading is a heading element that does not contain any text content. We can find these with WAVE by checking for the _Empty heading_ error.
 
-The empty heading on this page is empty visually, as well, so it should be removed to prevent confusing screen reader users. It could still be an empty heading if it contained non-text content, like an icon or image. In that case, assuming the content is functioning as a heading, that content would need to be changed to text or have text added to it. For example, if an image is used as a heading, that image will require alt text, which is discussed further in the episode about images.
+The empty heading on this page is truly empty: That is, sighted users do not receive any information, either. Since there is no reason for it to be here and it may create complications for people who use screen readers, it should be removed. An even more problematic situation would be if an icon or image were used as heading, without any identifying text. In that case, only sighted users would be receiving the needed information.
 
 ## Heading Structure
 
@@ -71,7 +71,7 @@ To make life easier, we can hide various WAVE errors, alerts, and other icons th
 2. Turn off all contrast errors.
 3. Turn off all alerts except for _Skipped heading level_ and _Possible heading_.
 4. Turn off all features by clicking the top checkbox instead of each of the feature checkboxes.
-5. Turn off all non-heading structural elements: Everything except _Heading level X_.
+5. Turn off all non-heading structural : Everything except _Heading level X_.
 6. Turn off all ARIA.
 
 After we have finished, we can go from the Details tab to the Structure tab. This tab will show headings and page regions. The headings, which we are interested in, have circular symbols: We can ignore everything that is not a circle.
@@ -82,15 +82,17 @@ There are several things we are checking here:
 2. Is the outline WAVE provides missing anything? In other words, is everything that should be a heading coded as one?
 3. Are all headings at the appropriate level for their content?
 
-As we scroll through the page, the first thing we find is the _Heading level 1_, which is as it should be. Right after that, however, we see a _Heading level 3_, which means we have skipped a heading level. More importantly, this is not actually a heading, but a subtitle. Subtitles are one of the most common offenders for non-heading content formatted using headings.
+As we scroll through the page, the first thing we find is the _Heading level 1_, which is as it should be. Right after that, however, we see a _Heading level 4_, which means we have skipped a heading level. More importantly, this is not actually a heading, but a subtitle. Subtitles are one of the most common offenders for non-heading content formatted using headings.
 
-The next few headings are fine, all the way down to the empty heading we noted previously. After that, we need to pay careful attention or we may miss the next issue: _Link Text_ should really be a subheading of _Links_. This becomes especially obvious when we notice the headings further down that are also about links, though not necessarily limited to link text. Therefore, this heading level needs to be changed. As a bonus, this will solve the next issue, which is the _Skipped heading level_ for _Link Examples_. Once _Link Text_ becomes level 3, the structure will no longer go directly from 2 to 4.
+The next few headings are fine, all the way down to the empty heading we noted previously. WAVE does mark the text on top of the image as a possible heading, but we can ignore that, since it does not function as a heading.
 
-Further down, we see the _Possible heading_ alert, which is indeed indicating an issue for us. Right after that, however, is _Other Link Considerations_, which is also a fake heading. It even has the same formatting as _Links and Images_, but because the underlying HTML is slightly different, WAVE is not giving us an alert. The important takeaway here is that we cannot rely on WWAVE to always indicate possible headings for us. The alerts are useful, but we still need to pay careful attention to whether or not WAVE markes each heading as a heading.
+After the empty heading, we reach the obvious heading "Formatting Headings" and find that it is not coded as a heading. In this case, WAVE has marked it with a _Possible heading_ alert. This time, WAVE is correct: We need to change this to be a heading. Right after that, however, is Heading Hierarchy, which is also a fake heading (something that is formatted as and functions as a heading, but is not coded as one). It even has the same formatting as the previous fake heading, but because the underlying HTML is slightly different, WAVE is not giving us an alert. The important takeaway here is that we cannot rely on WAVE to always indicate possible headings for us. The alerts are useful, but we still need to pay careful attention to whether or not WAVE markes each heading as a heading.
+
+Next, we need to pay careful attention or we may miss the next issue: Link Text should really be a subheading of Links. This becomes especially obvious when we notice the headings further down that are also about links, though not necessarily limited to link text. Therefore, this heading level needs to be changed. As a bonus, this will solve the next issue, which is the _Skipped heading level_ for _Link Examples_. Once _Link Text_ becomes level 3, the structure will no longer go directly from 2 to 4.
 
 > ## Exercise: Testing Headings
 >
-> Use the [sample testing page](../../test-sample-1/index.html) for this exercise.
+> Use the [sample testing page](https://accessibility.oucreate.com/samples/test-sample) for this exercise.
 >
 > 1. What heading-related errors and alerts does WAVE indicate for this page?
 > 2. Are there any heading-related issues that WAVE does not indicate? It might help to visually scan the page and determine what the heading outline should look like (with WAVE turned off), then compare that to WAVE's structure.
@@ -102,7 +104,7 @@ Further down, we see the _Possible heading_ alert, which is indeed indicating an
 > > 2. WAVE does not indicate the following issues:
 > >     - There are multiple level one headings, none of which could accurately serve as a heading for all the page content.
 > >     - There is an additional heading that is just formatted text that does not cause an alert (_Images and Alternative Text_).
-> >     - There is a heading that should not actually be a heading (the skipped heading level right after _Tables_). (It would also be reasonable to consider this caught be WAVE.)
+> >     - There is a heading that should not actually be a heading (the skipped heading level right after _Tables_). (It would also be reasonable to consider this caught by WAVE.)
 > > 3. To fix the issues:
 > >     - For WAVE's skipped heading level (and the heading that should not be a heading): Change the text from a heading to a paragraph (with formatting applied, if desired).
 > >     - For WAVE's possible heading (and the additional possible heading WAVE did not catch): Change the text to headings.
