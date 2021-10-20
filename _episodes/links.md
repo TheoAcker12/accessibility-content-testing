@@ -1,11 +1,11 @@
 ---
 title: "Links"
-teaching: 20
-exercises: 0
+teaching: 15
+exercises: 15
 questions:
 - "How can I make sure my links are accessible?"
 objectives:
-- "Detect any empty links or buttons."
+- "Detect any empty links and buttons."
 - "Identify basic issues in link text."
 - "Ensure that link text indicates link behavior."
 keypoints:
@@ -17,19 +17,21 @@ keypoints:
 
 ## Empty Links
 
-An empty link (or button) is defined as one that does not have any text content. Screen reader users would know the link exists (hopefully), but would not have any idea where it would take them, since there would be no link text for the screen reader to give them. WAVE will indicate such links with either an _Empty link_ error or a _Linked image missing alternative text_ error.
+An empty link is defined as a link that does not have any text content. Screen reader users would (hopefully) know the link exists, but would not have any idea where it would take them, since there would be no link text for the screen reader to pass on. WAVE will indicate such links with either an **Empty link** error or a **Linked image missing alternative text** error.
 
-On the [sample page](https://accessibility.oucreate.com/samples/sample) (the same one we have been using), we can find examples of both these errors. Clicking the _Empty link_ error takes us to an icon (from the page, not produced by WAVE). Hovering over this icon gives us some more information, but title text (also sometimes called hover text) is not the same as link text. This is completely insufficient: Link text must be provided for this link.
+On the [sample page](https://accessibility.oucreate.com/samples/sample) (the same one we have been using), we can find examples of both these errors.
 
-The _Linked image missing alternative text_ is a similar situation. The only real difference between these two errors is that one means an image is used in the link, and one means that an image is not used. The "i" icon on the sample page is not an image, but rather a special font character.
+Clicking the **Empty link** error takes us to an icon. Hovering over the icon reveals title text (also sometimes called hover text) that states: "Links section". This text may be presented to screen readers, but real link text is needed for full accessibility.
 
-For our purposes, Empty link is a much harder problem to fix than Linked image missing alternative text. If the link is an image, any reasonable content management system will provide a method for adding alt text so we can indicate where the link goes. Without an image, however, we may have to find more creative ways to add visually hidden text, or we may have to add visible text.
+The **Linked image missing alternative text** is a similar situation. The only real difference between these two errors is that this time an image is used for the link (the "i" icon on the sample page is a special font character, not an image).
+
+For our purposes, **Empty link** is a much harder problem to fix than **Linked image missing alternative text**. If the link is an image, any reasonable content management system will provide a method for adding alt text so we should be able to indicate where the link goes with little trouble. Without an image, however, we may have to find more creative ways to add visually hidden text, or we may have to add visible text to the link.
 
 WAVE will also alert us of any empty buttons it finds, which will generally have the same considerations as empty links.
 
 > ## Exercise: Fixing Empty Links
 >
-> Which of the following are accessible ways to fix the _Empty link_ error?
+> Which of the following are accessible ways to fix the **Empty link** error?
 >
 > 1. Remove the element entirely or make it no longer a link.
 > 2. Hide the element from assistive technology (using `aria-hidden="true"`) so that the empty link is ignored.
@@ -55,21 +57,23 @@ WAVE will also alert us of any empty buttons it finds, which will generally have
 
 ### Checking Links with WAVE
 
-While we will need to manually check the link text for all the links we have included in our content, WAVE can help us quickly identify the most obvious issues with _Suspicious link text_ alerts.
+While we will need to manually check the link text for all the links we have included in our content, WAVE can help us quickly identify the most obvious issues with **Suspicious link text** alerts.
 
-On the sample page, we can see there is one of these alerts. The link in question is specifically an example of a bad link. In context, we can determine where clicking the link will take us, but out of context this not a helpful link. Recall from the screen reader demo how "click here" was meaningless within the VoiceOver rotor. An example of a better alternative is provided as the last item in the list of examples.
+On the sample page, we can see there is one of these alerts. The link in question is specifically an example of a bad link. In context, we can determine where clicking the link will take us, but out of context this is not a helpful link, as we can recall from the screen reader demo.
 
-Note that "library website" could be ambiguous. For example, if the page were about multiple institutions or libraries, the link could refer to any number of library websites. However, because the link text makes sense within the context of the page (a page about OU Libraries), it can be considered to make sense out of context.
+Note that "library website" could be ambiguous, depending on the overall subject of the page. For a page about OU Libraries, it makes sense out of context from the rest of the page, but for a page about multiple libraries, it would not.
 
-For a full idea of what link text is considered suspicious (by WAVE), we can view the reference information for the alert. The explanation of the algorithm has a list of phrases that WAVE checks for. The list is presumably based on the most common offenders for ambiguous link text, but we could certainly come up with others.
+For a full idea of what link text WAVE considers suspicious, we can view the reference information for the alert. The explanation of the algorithm has a list of phrases that WAVE checks for. This list is presumably based on the most common offenders for ambiguous link text, but we could certainly come up with other clearly ambiguous words or phrases.
 
-WAVE can provide alerts for any broken same-page (anchor) links. These links jump to specific content on the page rather than change the page, and this makes it possible to check them automatically. A broken link is confusing and irritating to all users, so any that are found should be dealt with and removed.
+<!-- WAVE can provide alerts for any broken same-page (anchor) links. These links jump to specific content on the page rather than change the page, and this makes it possible to check them automatically. A broken link is confusing and irritating to all users, so any that are found should be dealt with and removed.
 
 There is a broken anchor link directly below the linked image missing alternative text.
 
-Unfortunately, WAVE cannot check for broken external links, as this is far more complicated. For most pages, it is better to <kbd>tab</kbd> through the page and try each link.
+Unfortunately, WAVE cannot check for broken external links, as this is far more complicated. For most pages, it is better to <kbd>tab</kbd> through the page and try each link. -->
 
-WAVE also provides a _Redundant link_ alert when it detects two links to the same address close together. Sometimes this happens because an image and text are both used as links. In these cases, the image and text should be combined into one link. A more common situation we, as content creators, might encounter is referring to something several times, and linking to it each time. Most of the time it is best to remove all such redundant links in order to prevent confusion.
+WAVE can provide alerts for any broken same-page (or anchor) links, but it cannot check for broken external links. For most pages, the best option may be to <kbd>tab</kbd> through the page and try each link.
+
+WAVE also provides a **Redundant link** alert when it detects two links to the same address close together. One of the primary reasons this might occur is if we refer to something multiple times, and link to it each time. Most of the time it is best to remove all such redundant links in order to prevent confusion.
 
 > ## Discussion: Suspicious Link Text
 >
@@ -82,14 +86,14 @@ We can better examine link text by using Accessibility Insights for Web to list 
 
 1. Turn off WAVE or refresh the page.
 2. Turn on Accessibility Insights for Web.
-3. Choose Assessment. If a notification indicates that an assessment is already in progress, choose _Start new_.
-4. Click on _Links_ and then _Link Purpose_.
+3. Choose Assessment. If a notification indicates that an assessment is already in progress, choose Start new.
+4. Click on Links and then Link Purpose.
 
 Scan the accessible names in the list of links provided and consider the following for each:
 
 - Does the link have a URL as part or all of the text?
 - Does the link make sense, or is it ambiguous? Ideally, it should make sense out of context.
-- Is the link text reasonable concise?
+- Is the link text reasonably concise?
 - Does identifying link information come at the beginning?
 
 Going through the list:
@@ -116,7 +120,7 @@ Going through the list:
 >
 > > ## Solution
 > >
-> > 1. Errors: 1 linked image missing alternative text. Alerts: None.
+> > 1. Errors: 1 **Linked image missing alternative text**. Alerts: None.
 > > 2. Yes: The link for color resources labeled `here.`
 > > 3. Yes: The link at the bottom of the page to the Accessibility Reference Guide.
 > >

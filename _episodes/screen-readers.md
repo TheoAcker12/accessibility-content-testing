@@ -1,6 +1,6 @@
 ---
 title: "Screen Readers"
-teaching: 15
+teaching: 10
 exercises: 0
 questions:
 - "How can a screen reader help with testing content?"
@@ -18,11 +18,9 @@ keypoints:
 
 In talking about formatting, there were several types of issues that cannot be easily tested with tools like WAVE or Insights. The best way to test for these (and certain other) issues is with a screen reader.
 
-Screen readers are specialized software that provide the content of the page in a structured audio format. They can help us test for formatting used to convey meaning or structure, lists created purely with text, or even other potential problems like typos. Our eyes may slide over a word without noticing that it has a typo, but hearing the word mispronounced tends to be far more jarring.
+Screen readers are specialized software that provide the content of the page in a structured audio format. They can help us test for formatting used to convey meaning or structure, for potential typos, and for a wide variety of other issues. While they should not be relied on as the sole means of testing (not all disabled users are blind or low vision), screen readers are a valuable tool for testing.
 
-Beyond that, there is a truly wide variety of issues screen readers can help us test. While they should not be relied on as the sole means of testing (not all disabled users are blind or low vision), screen readers can help us review our content and understand how it will be presented aurally.
-
-Screen readers may sound like complicated and intimidating tools, so it is important to know: You do not have to be proficient in using a screen reader to get major benefits from it. It is generally enough for this kind of testing to know how to turn the screen reader on and off and to have it read through content on a page.
+Screen readers may sound like complicated and intimidating tools, so it is important to know: You do not have to be proficient in using a screen reader to get major benefits from it. It is generally enough for this kind of testing to know how to turn the screen reader on and off and how to have it read through content on a page.
 
 Because different operating systems work with different screen reader software, it is not realistic to try teaching how to use them here. Fortunately, there are plenty of instructional materials for getting started.
 
@@ -49,6 +47,9 @@ Idea for reflection/discussion: After the demo, consider the following questions
 >
 > - I can open the VoiceOver rotor: <kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>U</kbd> (other screen readers will have similar functions)
 > - Navigate between lists using left and right arrow keys.
+> - Note the links menu. This is one of the reasons it is important for link text to make sense out of context.
+>   - There is a "click here" link that is meaningless to us.
+>   - There is a link that is a URL, and the screen reader starts reading it letter by letter.
 > - Headings menu is what we want. Provides an outline of the page content the way a sighted user might visually scan a page for headings.
 > - Navigate up and down with arrow keys
 > - Press <kbd>Return</kbd> to pick heading level one.
@@ -61,19 +62,11 @@ Idea for reflection/discussion: After the demo, consider the following questions
 > - Lists: screen reader gives a lot of information
 > - We do not get the same amount of info when the list is pure text.
 >
-> ### Links
->
-> - One more thing to demonstrate, going back to the rotor
-> - Links menu
-> - Can hear why it is important for link text to make sense out of context
-> - URLs in link text are bad
->
 > ### Done
 >
-> - Exit rotor without choosing anythingG: <kbd>Esc</kbd>
 > - Turn VoiceOver off with same command as on.
 > - There is a lot more people can do with a screen reader, but hopefully this has demonstrated how much you can learn about a page with only a few basic commands.
-> - Keep in mind: Variation between screen readers. If something seems accessible in one screen reader, that is not a guarantee that the content is perfectly accessible. (Again with the "Trust, but verify")
+> - Keep in mind: There is variation between screen readers. Remember our theme of "Trust, but verify." Testing with a screen reader is good, but we also want to use other tests to ensure our content is accessible.
 {: .discussion}
 
 {% include links.md %}

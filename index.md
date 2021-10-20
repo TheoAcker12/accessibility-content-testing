@@ -12,8 +12,9 @@ You may benefit from this lesson if you do, or plan to do, any of the following:
 - Create your own website
 - Create content for a learning management system, like Canvas, Blackboard, OnPoint, or D2L
 - Add or maintain content for any kind of content management system (e.g. WordPress, Grav, Drupal, Omeka, etc.)
+- Or otherwise create content that will live on the web
 
-However, anyone creating content that will live on the web in some form may find much of this information helpful, whether writing posts on social media, contributing to community projects like Wikipedia, or creating or maintaining web content in any other capacity.
+This lesson will not go into detail about the various accessibility principles, but more information will be provided for the topics covered.
 
 Disclaimer: This lesson provides some important information for testing website accessibility, but digital accessibility is a complex and heavily nuanced field. This lesson is by no means a comprehensive study of all aspects of creating or testing for accessible content. In addition to testing your content, the following actions are advised:
 
