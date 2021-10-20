@@ -65,8 +65,9 @@ Once we have made a note of the contrast error, we can move on and take a look a
 >
 > > ## Solution
 > >
-> > 1. A background color of `#E8E8E8` or lighter (`#EBEBEB`, `#EDEDED`, anything beginning with _F_: `#F?F?F?`) would satisfy WCAG AA with the current foreground (text) color of `#C7254E`.
-> > 2. A foreground (text) color of `#C6244D` or darker (`#C2244B`, `#BE2349`, `#B92248`, etc.) would satisfy WCAG AA with the current background color of `#E7E7E7`.
+<!-- > > 1. A background color of `#E8E8E8` or lighter (`#EBEBEB`, `#EDEDED`, anything beginning with _F_: `#F?F?F?`) would satisfy WCAG AA with the current foreground (text) color of `#C7254E`.
+> > 2. A foreground (text) color of `#C6244D` or darker (`#C2244B`, `#BE2349`, `#B92248`, etc.) would satisfy WCAG AA with the current background color of `#E7E7E7`. -->
+> > The exact colors found do not matter much. As long as the AA value for normal text was **Pass** instead of **Fail** then you should be good.
 > {: .solution}
 {: .challenge}
 
@@ -105,6 +106,8 @@ In WAVE, go from Contrast to Details to view information about errors and alerts
 {: .challenge}
 
 Underlined text is not the only type of formatting that can cause issues, but it is one of the few that can be easily tested for. Other issues, like writing (non-abbreviated) words in all capital letters to emphasize them or using centered or justified text alignment will typically have to be checked manually.
+
+Read more about [Text Formatting](https://guides.ou.edu/accessibility-reference/formatting#s-lg-box-wrapper-31185945).
 
 ## Meaningful Formatting
 

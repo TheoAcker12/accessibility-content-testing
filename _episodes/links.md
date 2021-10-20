@@ -13,6 +13,7 @@ keypoints:
 - "WAVE can identify some instances of problematic link text."
 - "Accessibility Insights for Web provides a list of all links to check how they will be identified."
 - "Links that open in a new tab or window or that download content need to indicate this to users."
+- "More info about [accessible links](https://guides.ou.edu/accessibility-reference/content/semantic-elements#s-lg-box-wrapper-31175045)"
 ---
 
 ## Empty Links

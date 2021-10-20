@@ -52,6 +52,8 @@ Special attention must be paid to mathematical expressions and equations to ensu
 
 This is best tested with a screen reader. We should be able to write out the expression accurately based on what we hear without worrying about any ambiguity. If we are concerned that our knowledge of what the expression is supposed to be is preventing us from detecting potential ambiguity, we could provide the text from the screen reader to someone else who has not seen the expression and see if it is clear and unambiguous to them.
 
+Read more about [accessible math](https://guides.ou.edu/accessibility-reference/content/text#s-lg-box-wrapper-31201148)
+
 ## Tables and Forms
 
 There are additional tests we must perform if we have included any tables or form elements in our content. More information on these will be provided soon.

@@ -13,6 +13,7 @@ keypoints:
 - "WAVE creates errors for any empty headings that should be removed or fixed."
 - "WAVE creates several useful alerts for potential issues in heading structure."
 - "WAVE indicates all headings (and their levels) on the page."
+- "More info about [accessible headings](https://guides.ou.edu/accessibility-reference/content/semantic-elements#s-lg-box-wrapper-31173987)"
 ---
 
 ## Importance of Headings

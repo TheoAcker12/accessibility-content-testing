@@ -22,7 +22,7 @@ Screen readers are specialized software that provide the content of the page in 
 
 Screen readers may sound like complicated and intimidating tools, so it is important to know: You do not have to be proficient in using a screen reader to get major benefits from it. It is generally enough for this kind of testing to know how to turn the screen reader on and off and how to have it read through content on a page.
 
-Because different operating systems work with different screen reader software, it is not realistic to try teaching how to use them here. Fortunately, there are plenty of instructional materials for getting started.
+Because different operating systems work with different screen reader software, it is not realistic to try teaching how to use them here. Fortunately, there are plenty of instructional materials for getting started. [Screen Reader Resources](https://guides.ou.edu/accessibility-reference/resources#s-lg-box-wrapper-31204987)
 
 <!-- Link needs to be included here so that people can find what screen reader is built-in with their operating system and instructional materials for using it. -->
 
